@@ -30,8 +30,14 @@ public class Hospital {
 		listaEnfermeiros.add(en);
 	}
 	
-	public void listarPacientes (String nomeMedico) {
+	public void listarPacientes (Medico nomeMedico) {
+		
+		this.getListaMedicos().equals(nomeMedico);
 	
+		for(Paciente p : listaPacientes) {
+			System.out.println(p.detalhes());
+		}
+
 	}
 	
 	public int pesquisarPacientes (String nome) {

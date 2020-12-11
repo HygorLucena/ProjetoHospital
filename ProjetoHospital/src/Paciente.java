@@ -33,10 +33,14 @@ public class Paciente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Dados do Paciente: " + ", nome:" + this.getNome() + "\n, sexo:" + this.getSexo() +
-				"\n, doença:" + doenca + "\n, médico(a):" + medico + "\n, enfermeiro(a)=" + enfermeiro;
+		return "Dados do Paciente: " + "\n Nome: " + this.getNome() + "\n Sexo: " + this.getSexo() +
+				"\n Doença: " + doenca + "\n Médico(a): " + medico + "\n Enfermeiro(a): " + enfermeiro;
 	}
 	
+	public String detalhes() {
+		return "======= Informações Gerais do Paciente =======" + "\n Nome: " + this.getNome() + 
+				"\n Sexo: " + this.getSexo() + "\n Nome do Médico(a): " + this.getMedico();
+	}
 	
 	
 }
