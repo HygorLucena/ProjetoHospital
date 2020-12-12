@@ -2,75 +2,68 @@ import java.util.ArrayList;
 
 public class Hospital {
 	
-	private ArrayList<Paciente> listaPacientes = new ArrayList<>();
-	private ArrayList<Medico> listaMedicos = new ArrayList<>();
-	private ArrayList<Enfermeiro> listaEnfermeiros = new ArrayList<>();
+	private ArrayList<Paciente> listaPacientes;
+	private ArrayList<Medico> listaMedicos;
+	private ArrayList<Enfermeiro> listaEnfermeiros;     //= new ArrayList<Enfermeiro>();
+	private ContaJuridica CJ;
 	
 	
-	public  ArrayList<Paciente> getListaPacientes() {
+	public Hospital(ArrayList<Paciente> listaPacientes, ArrayList<Medico> listaMedicos,
+			ArrayList<Enfermeiro> listaEnfermeiros, ContaJuridica cJ) {
+		super();
+		this.listaPacientes = listaPacientes;
+		this.listaMedicos = listaMedicos;
+		this.listaEnfermeiros = listaEnfermeiros;
+		CJ = cJ;
+	}
+	
+	
+	public ArrayList<Paciente> getListaPacientes() {
 		return listaPacientes;
 	}
-	public  ArrayList<Medico> getListaMedicos() {
+	public void setListaPacientes(ArrayList<Paciente> listaPacientes) {
+		this.listaPacientes = listaPacientes;
+	}
+	public ArrayList<Medico> getListaMedicos() {
 		return listaMedicos;
 	}
-	public  ArrayList<Enfermeiro> getListaEnfermeiros() {
+	public void setListaMedicos(ArrayList<Medico> listaMedicos) {
+		this.listaMedicos = listaMedicos;
+	}
+	public ArrayList<Enfermeiro> getListaEnfermeiros() {
 		return listaEnfermeiros;
+	}
+	public void setListaEnfermeiros(ArrayList<Enfermeiro> listaEnfermeiros) {
+		this.listaEnfermeiros = listaEnfermeiros;
+	}
+	public ContaJuridica getCJ() {
+		return CJ;
+	}
+	public void setCJ(ContaJuridica cJ) {
+		CJ = cJ;
 	}
 	
 	
 	public void adicionarPaciente (Paciente p) {
 		listaPacientes.add(p);
 	}
-	
 	public void adicionarMedico (Medico m) {
 		listaMedicos.add(m);
 	}
-	
 	public void adicionarEnfermeiro (Enfermeiro en) {
 		listaEnfermeiros.add(en);
 	}
 	
-	public void listarPacientes (Medico nomeMedico) {
-		
-		this.getListaMedicos().equals(nomeMedico);
 	
+	public void listarPacientes (String nomeMedico) { //recebe um objeto medico e retorna a lista total de pacientes
+		System.out.println("=====Lista De Pacientes=====");
 		for(Paciente p : listaPacientes) {
-			System.out.println(p.detalhes());
-		}
-
-	}
-	
-	public int pesquisarPacientes (String nome) {
-		int qtd = 0;
-		
-		for( Paciente p : listaPacientes ) {
-			if(p.getNome().equals(nome)) {
-				qtd++;
+			if(p.getMedico().getNome().equals(nomeMedico)) {
+				System.out.println(p.getNome());
 			}
 		}
-		return qtd;
+		System.out.println("============================");
 	}
 	
-	public int pesquisarMedicos (String nome) {
-		int qtd = 0;
-		
-		for( Medico m : listaMedicos ) {
-			if(m.getNome().equals(nome)) {
-				qtd++;
-			}
-		}
-		return qtd;
-	}
 	
-	public int pesquisarEnfermeiros (String nome) {
-		int qtd = 0;
-		
-		for( Enfermeiro e : listaEnfermeiros ) {
-			if(e.getNome().equals(nome)) {
-				qtd++;
-			}
-		}
-		return qtd;
-	}
-		
 }
